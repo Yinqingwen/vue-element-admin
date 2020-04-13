@@ -91,7 +91,19 @@ export const constantRoutes = [
         path: 'index',
         component: () => import('@/views/documentation/index'),
         name: 'Documentation',
-        meta: { title: 'Documentation', icon: 'documentation', affix: true }
+        meta: { title: 'Documentation', icon: 'documentation', affix: false }
+      }
+    ]
+  },
+  {
+    path: '/MPSetting',
+    component: Layout,
+    children: [
+      {
+        path: 'MPINfoBase',
+        component: () => import('@/views/MPInfo/Base'),
+        name: 'MPInfoBase',
+        meta: { title: '公众号基本信息', icon: 'wechat', affix: false }
       }
     ]
   },
