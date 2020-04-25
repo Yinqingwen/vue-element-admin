@@ -1,8 +1,5 @@
 <template>
   <div class="dashboard-editor-container">
-    <!--
-    <github-corner class="github-corner" />
-    -->
     <SiteAssembly />
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
 
