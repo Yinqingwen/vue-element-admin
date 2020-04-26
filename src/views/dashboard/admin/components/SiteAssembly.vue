@@ -1,7 +1,7 @@
 <!--
  * @Author: 尹庆文
  * @Date: 2020-04-22 21:58:31
- * @LastEditTime: 2020-04-25 23:20:56
+ * @LastEditTime: 2020-04-26 21:19:20
  * @LastEditors: Please set LastEditors
  * @Description: 站点使用的软件版本
  * @FilePath: \vue-element-admin\src\views\dashboard\admin\components\SiteAssembly.vue
@@ -24,10 +24,14 @@
                 <img :src="scope.row.nugetVersion" alt="Nuget版本" />
               </template>
             </el-table-column>
-            <el-table-column prop="supportNet45" label="版本支持情况" />
+            <el-table-column label="版本支持情况">
+              <template slot-scope="scope">
+                <img title=".NET 4.5" alt=".NET 4.5" :src="scope.row.supportNet45Src">
+              </template>
+            </el-table-column>
             <el-table-column label="源码地址">
               <template slot-scope="scope">
-                <a :href="scope.row.gitHubUrl" target="_blank">源码下载地址</a>
+                <el-link type="primary" :href="scope.row.gitHubUrl" target="_blank">下载地址</el-link>
               </template>
             </el-table-column>
           </el-table>
@@ -57,6 +61,7 @@ export default {
               "version": "6.7.500",
               "nugetVersion": "https://img.shields.io/nuget/v/Senparc.Weixin.svg?style=flat",
               "supportNet45": true,
+              "supportNet45Src": "https://img.shields.io/badge/4.5-Y-brightgreen",
               "supportStandard20": true,
               "supportStandard21": true,
               "supportNetCore22": true,
