@@ -8,7 +8,7 @@ export default [
         data: [
           {
             'groupInfo': {
-              'title': 'Senparc.Weixin SDK',
+              'title': 'Senparc.Weixin SDK For Mock',
               'description': '对应于每一个微信平台的基础 SDK，包含了目前微信平台的绝大部分 API，进行微信开发重点是对这些库的使用。'
             },
             'assemblyModelCollection': [
