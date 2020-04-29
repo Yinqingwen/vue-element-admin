@@ -1,7 +1,7 @@
 <!--
  * @Author: 尹庆文
  * @Date: 2020-04-22 21:58:31
- * @LastEditTime: 2020-04-28 21:34:09
+ * @LastEditTime: 2020-04-29 22:44:06
  * @LastEditors: Please set LastEditors
  * @Description: 站点使用的软件版本
  * @FilePath: \vue-element-admin\src\views\dashboard\admin\components\SiteAssembly.vue
@@ -54,8 +54,8 @@ export default {
     }
   },
   mounted: function() {
-    getsiteassembly().then(Response => {
-      this.assembly = Response.data
+    getsiteassembly().then(response => {
+      this.assembly = response.data.items
     })
   }
 }
