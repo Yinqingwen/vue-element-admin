@@ -13,13 +13,13 @@ import user from './user'
 import role from './role'
 import article from './article'
 import search from './remote-search'
-// import siteassembly from './siteassembly'
+import siteassembly from './siteassembly'
 
 const mocks = [
   ...user,
   ...role,
   ...article,
-  // ...siteassembly,
+  ...siteassembly,
   ...search
 ]
 

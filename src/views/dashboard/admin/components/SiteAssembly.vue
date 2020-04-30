@@ -45,7 +45,7 @@
   </el-row>
 </template>
 <script>
-import { getsiteassembly } from '@/api/SiteAssembly'
+import { getsiteassembly } from '@/api/siteassembly'
 
 export default {
   data() {
@@ -55,7 +55,7 @@ export default {
   },
   mounted: function() {
     getsiteassembly().then(response => {
-      this.assembly = response.data.items
+      this.assembly = response.data
     })
   }
 }
