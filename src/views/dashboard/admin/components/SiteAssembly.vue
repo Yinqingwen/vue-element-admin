@@ -1,7 +1,7 @@
 <!--
  * @Author: 尹庆文
  * @Date: 2020-04-22 21:58:31
- * @LastEditTime: 2020-04-30 22:40:53
+ * @LastEditTime: 2020-05-05 16:33:55
  * @LastEditors: Please set LastEditors
  * @Description: 站点使用的软件版本
  * @FilePath: \vue-element-admin\src\views\dashboard\admin\components\SiteAssembly.vue
@@ -45,7 +45,7 @@
   </el-row>
 </template>
 <script>
-import { getsiteassembly } from '@/api/SiteAssembly'
+import { getsiteassembly } from '@/api/apiassembly'
 
 export default {
   data() {

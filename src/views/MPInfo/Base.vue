@@ -1,7 +1,7 @@
 <!--
  * @Author: 尹庆文
  * @Date: 2020-04-30 21:19:45
- * @LastEditTime: 2020-05-01 00:35:22
+ * @LastEditTime: 2020-05-05 16:26:39
  * @LastEditors: Please set LastEditors
  * @Description: 微信基本设置信息
  * @FilePath: \vue-element-admin\src\views\MPInfo\Base.vue
@@ -9,8 +9,8 @@
 <template>
   <el-form ref="form" :model="form" label-position="right" label-width="10em" class="form">
     <el-row>
-      <el-tabs :tab-position="tabPosition" id="tabnav">
-        <el-tab-pane label="基础信息" id="base">
+      <el-tabs id="tabnav" :tab-position="tabPosition">
+        <el-tab-pane id="base" label="基础信息">
           <el-form-item label="公司名称">
             <el-input v-model="form.companyName" />
           </el-form-item>
@@ -24,7 +24,7 @@
             <el-input v-model="form.phone" />
           </el-form-item>
           <el-form-item label="加密数据" prop="delivery">
-            <el-switch v-model="form.delivery"></el-switch>
+            <el-switch v-model="form.delivery" />
           </el-form-item>
           <el-form-item label="加密公钥">
             <el-input v-model="form.publicKey" />
@@ -151,19 +151,19 @@
 export default {
   data() {
     return {
-      tabPosition: "left",
+      tabPosition: 'left',
       form: {
-        weixinAddId: "",
-        weixnSecrect: "",
-        weixnToken: "",
-        weixnEncodingAESKey: ""
+        weixinAddId: '',
+        weixnSecrect: '',
+        weixnToken: '',
+        weixnEncodingAESKey: ''
       }
-    };
+    }
   },
   methods: {
     onSubmit() {
-      console.log("submit!");
+      console.log('submit!')
     }
   }
-};
+}
 </script>
