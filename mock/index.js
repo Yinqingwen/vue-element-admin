@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2020-04-28 20:47:32
- * @LastEditTime: 2020-04-29 22:22:50
- * @LastEditors: your name
+ * @LastEditTime: 2020-05-05 23:25:37
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue-element-admin\mock\index.js
  */
@@ -13,13 +13,13 @@ import user from './user'
 import role from './role'
 import article from './article'
 import search from './remote-search'
-import siteassembly from './siteassembly'
+// import siteassembly from './siteassembly'
 
 const mocks = [
   ...user,
   ...role,
   ...article,
-  ...siteassembly,
+  // ...siteassembly,
   ...search
 ]
 

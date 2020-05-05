@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-04-10 23:55:32
+ * @LastEditTime: 2020-05-05 22:49:38
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vue-element-admin\src\main.js
+ */
 import Vue from 'vue'
 
 import Cookies from 'js-cookie'

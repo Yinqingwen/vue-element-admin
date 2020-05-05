@@ -1,5 +1,5 @@
-/*export default [
-  {
+export default [
+/*  {
     url: '/api/assembly',
     type: 'get',
     response: _ => {
@@ -433,6 +433,5 @@
         ]
       }
     }
-  }
+  }*/
 ]
-*/
