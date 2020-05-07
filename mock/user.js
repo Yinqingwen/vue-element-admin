@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-04-10 23:55:32
+ * @LastEditTime: 2020-05-07 20:01:55
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vue-element-admin\mock\user.js
+ */
 
 const tokens = {
   admin: {
@@ -26,7 +34,8 @@ const users = {
 export default [
   // user login
   {
-    url: '/vue-element-admin/user/login',
+    // url: '/vue-element-admin/user/login',
+    url: '/user/login',
     type: 'post',
     response: config => {
       const { username } = config.body
@@ -49,7 +58,8 @@ export default [
 
   // get user info
   {
-    url: '/vue-element-admin/user/info\.*',
+    // url: '/vue-element-admin/user/info\.*',
+    url: '/user/info\.*',
     type: 'get',
     response: config => {
       const { token } = config.query
@@ -72,7 +82,8 @@ export default [
 
   // user logout
   {
-    url: '/vue-element-admin/user/logout',
+    // url: '/vue-element-admin/user/logout',
+    url: '/user/logout',
     type: 'post',
     response: _ => {
       return {
