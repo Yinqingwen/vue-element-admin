@@ -1,7 +1,7 @@
 <!--
  * @Author: 尹庆文
  * @Date: 2020-04-30 21:19:45
- * @LastEditTime: 2020-05-07 23:42:05
+ * @LastEditTime: 2020-05-13 23:23:49
  * @LastEditors: Please set LastEditors
  * @Description: 微信基本设置信息
  * @FilePath: \vue-element-admin\src\views\MPInfo\Base.vue
@@ -150,8 +150,12 @@ export default {
     }
   },
   mounted: function() {
+    console.log(aes.encrypt('Yinqingwen19690219','Yinqingwen19690219'))
+    console.log(aes.decrypt('A3UjhupfIR9iY3Von+r49cRtzJ6DcGtwuBZOeOtq3YqNkC+DXDeGE+JpqZYtd0iAqJtb6b9oDm2nCjtIeLTOGS0XWonm3RNDxP9aeDZ4iv4=','Yinqingwen19690219'))
+      //console.log(aes.encrypt('Yinqingwen19690219', 'Yinqingwen19690219'))
     getbasesettings().then(response => {
-      console.log(aes.decrypt(response.data.encryptionKey))
+      //console.log(aes.encrypt('Yinqingwen19690219','Yinqingwen19690219'))
+      //console.log(aes.decrypt(response.data.encryptionKey))
       this.formdata = response.data
     })
   },
