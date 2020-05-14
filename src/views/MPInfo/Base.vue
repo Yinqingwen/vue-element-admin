@@ -1,7 +1,7 @@
 <!--
  * @Author: 尹庆文
  * @Date: 2020-04-30 21:19:45
- * @LastEditTime: 2020-05-13 23:23:49
+ * @LastEditTime: 2020-05-14 23:57:40
  * @LastEditors: Please set LastEditors
  * @Description: 微信基本设置信息
  * @FilePath: \vue-element-admin\src\views\MPInfo\Base.vue
@@ -150,13 +150,48 @@ export default {
     }
   },
   mounted: function() {
-    console.log(aes.encrypt('Yinqingwen19690219','Yinqingwen19690219'))
-    console.log(aes.decrypt('A3UjhupfIR9iY3Von+r49cRtzJ6DcGtwuBZOeOtq3YqNkC+DXDeGE+JpqZYtd0iAqJtb6b9oDm2nCjtIeLTOGS0XWonm3RNDxP9aeDZ4iv4=','Yinqingwen19690219'))
-      //console.log(aes.encrypt('Yinqingwen19690219', 'Yinqingwen19690219'))
     getbasesettings().then(response => {
-      //console.log(aes.encrypt('Yinqingwen19690219','Yinqingwen19690219'))
-      //console.log(aes.decrypt(response.data.encryptionKey))
+      // 首先解密密钥供下面使用
+      response.data.encryptionKey = aes.AESDecrypt(response.data.encryptionKey, 'Yinqingwen19690219')
+      // 系统设置信息
+      response.data.systemSettings.companyName = '' || response.data.systemSettings.companyName
+      response.data.systemSettings.companyLongName = '' || response.data.systemSettings.companyLongName
+      // 获取公众号设置信息，不为空则解密
+      response.data.weiXinSettings.appId = '' || aes.AESDecrypt(response.data.weiXinSettings.appId, response.data.encryptionKey)
+      response.data.weiXinSettings.appSecret = '' || aes.AESDecrypt(response.data.weiXinSettings.appSecret, response.data.encryptionKey)
+      response.data.weiXinSettings.token = '' || aes.AESDecrypt(response.data.weiXinSettings.token, response.data.encryptionKey)
+      response.data.weiXinSettings.encodingAESKey = '' || aes.AESDecrypt(response.data.weiXinSettings.encodingAESKey, response.data.encryptionKey)
+      // 获取小程序设置，不为空则解密
+      response.data.miniProgramSettings.wxOpenAppId = '' || aes.AESDecrypt(response.data.miniProgramSettings.wxOpenAppId, response.data.encryptionKey)
+      response.data.miniProgramSettings.wxOpenAppSecret = '' || aes.AESDecrypt(response.data.miniProgramSettings.wxOpenAppSecret, response.data.encryptionKey)
+      response.data.miniProgramSettings.wxOpenToken = '' || aes.AESDecrypt(response.data.miniProgramSettings.wxOpenToken, response.data.encryptionKey)
+      response.data.miniProgramSettings.wxOpenEncodingAESKey = '' || aes.AESDecrypt(response.data.miniProgramSettings.wxOpenEncodingAESKey, response.data.encryptionKey)
+      // 企业微信设置，不为空则解密
+      response.data.corporateWeChat.weixinCorpId = '' || aes.AESDecrypt(response.data.corporateWeChat.weixinCorpId, response.data.encryptionKey)
+      response.data.corporateWeChat.weixinCorpAgentId = '' || aes.AESDecrypt(response.data.corporateWeChat.weixinCorpAgentId, response.data.encryptionKey)
+      response.data.corporateWeChat.weixinCorpSecret = '' || aes.AESDecrypt(response.data.corporateWeChat.weixinCorpSecret, response.data.encryptionKey)
+      response.data.corporateWeChat.weixinCorpToken = '' || aes.AESDecrypt(response.data.corporateWeChat.weixinCorpToken, response.data.encryptionKey)
+      response.data.corporateWeChat.weixinCorpEncodingAESKey = '' || aes.AESDecrypt(response.data.corporateWeChat.weixinCorpEncodingAESKey, response.data.encryptionKey)
+      // 微信支付设置，不为空则解密
+      response.data.tenPaySettings.tenPayV3_AppId = '' || aes.AESDecrypt(response.data.tenPaySettings.tenPayV3_AppId, response.data.encryptionKey)
+      response.data.tenPaySettings.tenPayV3_AppSecret = '' || aes.AESDecrypt(response.data.tenPaySettings.tenPayV3_AppSecret, response.data.encryptionKey)
+      response.data.tenPaySettings.tenPayV3_SubAppId = '' || aes.AESDecrypt(response.data.tenPaySettings.tenPayV3_SubAppId, response.data.encryptionKey)
+      response.data.tenPaySettings.tenPayV3_SubAppSecret = '' || aes.AESDecrypt(response.data.tenPaySettings.tenPayV3_SubAppSecret, response.data.encryptionKey)
+      response.data.tenPaySettings.tenPayV3_MchId = '' || aes.AESDecrypt(response.data.tenPaySettings.tenPayV3_MchId, response.data.encryptionKey)
+      response.data.tenPaySettings.tenPayV3_SubMchId = '' || aes.AESDecrypt(response.data.tenPaySettings.tenPayV3_SubMchId, response.data.encryptionKey)
+      response.data.tenPaySettings.tenPayV3_Key = '' || aes.AESDecrypt(response.data.tenPaySettings.tenPayV3_Key, response.data.encryptionKey)
+      response.data.tenPaySettings.tenPayV3_CertPath = '' || aes.AESDecrypt(response.data.tenPaySettings.tenPayV3_CertPath, response.data.encryptionKey)
+      response.data.tenPaySettings.tenPayV3_CertSecret = '' || aes.AESDecrypt(response.data.tenPaySettings.tenPayV3_CertSecret, response.data.encryptionKey)
+      response.data.tenPaySettings.tenPayV3_TenpayNotify = '' || aes.AESDecrypt(response.data.tenPaySettings.tenPayV3_TenpayNotify, response.data.encryptionKey)
+      response.data.tenPaySettings.tenPayV3_WxOpenTenpayNotify = '' || aes.AESDecrypt(response.data.tenPaySettings.tenPayV3_WxOpenTenpayNotify, response.data.encryptionKey)
+      // 微信开放平台设置，不为空则解密
+      response.data.openSettings.component_Appid = '' || aes.AESDecrypt(response.data.openSettings.component_Appid, response.data.encryptionKey)
+      response.data.openSettings.component_Secret = '' || aes.AESDecrypt(response.data.openSettings.component_Secret, response.data.encryptionKey)
+      response.data.openSettings.component_Token = '' || aes.AESDecrypt(response.data.openSettings.component_Token, response.data.encryptionKey)
+      response.data.openSettings.component_EncodingAESKey = '' || aes.AESDecrypt(response.data.openSettings.component_EncodingAESKey, response.data.encryptionKey)
+      // 传递给界面
       this.formdata = response.data
+      console.log(this.formdata)
     })
   },
   methods: {
